@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    //const QString &url = "https://opentdb.com/api.php?amount=3&category=27&difficulty=easy&type=multiple";
+    const QString &url = "https://opentdb.com/api.php?amount=3&category=27&difficulty=easy&type=multiple";
     QNetworkAccessManager manager;
     QNetworkRequest request(QUrl("https://opentdb.com/api.php?amount=3&category=27&difficulty=easy&type=multiple"));
 
@@ -51,20 +51,20 @@ int main(int argc, char *argv[])
                     {
                         category = questionObj["category"].toString();
                         difficulty = questionObj["difficulty"].toString();
-                        question1 = question;
-                        choices1 = choices.join(", ");
+                    //    question1 = question;
+                     //   choices1 = choices.join(", ");
                     }
 
                     else if (i == 2)
                     {
-                        question2 = question;
-                        choices2 = choices.join(", ");
+                   //     question2 = question;
+                   //     choices2 = choices.join(", ");
                     }
 
                     else
                     {
-                        question3 = question;
-                        choices3 = choices.join(", ");
+                      //  question3 = question;
+                    //    choices3 = choices.join(", ");
                     }
 
                     i++;

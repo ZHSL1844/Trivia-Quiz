@@ -12,11 +12,13 @@ CONFIG += c++17
 SOURCES += \
     global_variables.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    mywidget.cpp
 
 HEADERS += \
     global_variables.h \
-    mainwindow.h
+    mainwindow.h \
+    mywidget.h
 
 FORMS += \
     mainwindow.ui
