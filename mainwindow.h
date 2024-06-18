@@ -3,8 +3,6 @@
 
 #include <QMainWindow>
 #include <QWidget>
-#include <QButtonGroup>
-
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,12 +18,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-
 private slots:
-    void on_pushButton_clicked();
+    void set_c();
+
+    void pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
-
 };
 #endif

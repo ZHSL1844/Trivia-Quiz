@@ -1,17 +1,17 @@
-#ifndef MYWIDGET_H
-#define MYWIDGET_H
+// #ifndef MYWIDGET_H
+// #define MYWIDGET_H
 
-#include <QWidget>
-#include <QButtonGroup>
+// #include <QButtonGroup>
+// #include <QWidget>
 
-class MyWidget : public QWidget
-{
-    Q_OBJECT
-public:
-    MyWidget(QWidget *parent = nullptr);
+// class MyWidget : public QWidget , public MainWindow
+// {
+//     Q_OBJECT
+// public:
+//     MyWidget(QWidget *parent = nullptr);
 
-private :
-    QButtonGroup *buttonGroup;
-};
+// private:
+//     QButtonGroup *buttonGroup;
+// };
 
-#endif // MYWIDGET_H
+// #endif // MYWIDGET_H
