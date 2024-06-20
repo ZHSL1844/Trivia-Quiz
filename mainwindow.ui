@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>230</y>
+      <x>290</x>
+      <y>170</y>
       <width>181</width>
       <height>51</height>
      </rect>
@@ -37,60 +37,21 @@
    <widget class="QGroupBox" name="groupBox_4">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>30</y>
-      <width>351</width>
-      <height>161</height>
+      <x>410</x>
+      <y>20</y>
+      <width>331</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="title">
      <string>Difficulty :</string>
     </property>
-    <widget class="QRadioButton" name="radioButton_3">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>60</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>medium</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radioButton_4">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>90</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>hard</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radioButton_5">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>30</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>easy</string>
-     </property>
-    </widget>
     <widget class="QComboBox" name="comboBox_dif">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>85</y>
-       <width>181</width>
+       <x>20</x>
+       <y>40</y>
+       <width>291</width>
        <height>31</height>
       </rect>
      </property>
@@ -101,348 +62,46 @@
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>321</width>
-      <height>461</height>
+      <width>341</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="title">
      <string>Category :</string>
     </property>
-    <widget class="QRadioButton" name="radio_book">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>50</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>book</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_film">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>80</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>film</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_mus">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>110</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>music</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_the">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>140</y>
-       <width>151</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>musicals &amp; theaters</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_tele">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>170</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>television</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_kno">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>20</y>
-       <width>171</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>general knowledge</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_vg">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>200</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>video games</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_bg">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>230</y>
-       <width>121</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>board games</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_sc">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>20</y>
-       <width>141</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>science &amp; nature</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_com_2">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>50</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>computers</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_math">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>80</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>mathematics</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_my">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>110</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>mythology</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_sport">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>140</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>sports</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_geo">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>170</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>geography</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_his">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>200</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>history</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_pol">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>230</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>politics</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_art">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>260</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>art</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_cel">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>260</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>celebrities</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_ani">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>290</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>animals</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_veh">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>290</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>vehicles</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_com">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>320</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>comics</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_gad">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>320</y>
-       <width>110</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>gadgets</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radio_man">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>350</y>
-       <width>131</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>anime &amp; manga</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radioButton_27">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>350</y>
-       <width>151</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>carton animations</string>
-     </property>
-    </widget>
     <widget class="QComboBox" name="comboBox_cat">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>400</y>
-       <width>161</width>
+       <x>30</x>
+       <y>40</y>
+       <width>261</width>
        <height>31</height>
       </rect>
      </property>
     </widget>
    </widget>
-   <widget class="QProgressBar" name="progressBar">
+   <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>320</y>
-      <width>341</width>
-      <height>31</height>
+      <x>170</x>
+      <y>260</y>
+      <width>461</width>
+      <height>211</height>
      </rect>
     </property>
-    <property name="value">
-     <number>12</number>
+    <property name="title">
+     <string>question</string>
     </property>
+    <widget class="QTextBrowser" name="textBrowser">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>60</y>
+       <width>261</width>
+       <height>101</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -451,7 +110,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
