@@ -1,19 +1,19 @@
 #include "mainwindow.h"
-#include <QMessageBox>
-#include "global_variables.h"
-#include "ui_mainwindow.h"
-#include <QRadioButton>
 #include <QComboBox>
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QMessageBox>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QPointer>
 #include <QPushButton>
+#include <QRadioButton>
 #include <QtCleanUpFunction>
+#include "global_variables.h"
+#include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -61,94 +61,96 @@ void MainWindow::set_c()
 {
     int index = ui->comboBox_cat->currentIndex();
     qDebug() << index;
-        switch (index) {
-        case 0:
-            c = "10";
-            break;
-        case 1:
-            c = "32";
-            break;
-        case 2:
-            c = "12";
-            break;
-        case 3:
-            c = "9";
-            break;
-        case 4:
-            c = "13";
-            break;
-        case 5:
-            c = "11";
-            break;
-        case 6:
-            c = "14";
-            break;
-        case 7:
-            c = "15";
-            break;
-        case 8:
-            c = "16";
-            break;
-        case 9:
-            c = "25";
-            break;
-        case 10:
-            c = "27";
-            break;
-        case 11:
-            c = "29";
-            break;
-        case 12:
-            c = "31";
-            break;
-        case 13:
-            c = "17";
-            break;
-        case 14:
-            c = "18";
-            break;
-        case 15:
-            c = "19";
-            break;
-        case 16:
-            c = "20";
-            break;
-        case 17:
-            c = "21";
-            break;
-        case 18:
-            c = "22";
-            break;
-        case 19:
-            c = "23";
-            break;
-        case 20:
-            c = "24";
-            break;
-        case 21:
-            c = "26";
-            break;
-        case 22:
-            c = "28";
-            break;
-        case 23:
-            c = "29";
-        }
-        qDebug() << c;
+    switch (index) {
+    case 0:
+        c = "10";
+        break;
+    case 1:
+        c = "32";
+        break;
+    case 2:
+        c = "12";
+        break;
+    case 3:
+        c = "9";
+        break;
+    case 4:
+        c = "13";
+        break;
+    case 5:
+        c = "11";
+        break;
+    case 6:
+        c = "14";
+        break;
+    case 7:
+        c = "15";
+        break;
+    case 8:
+        c = "16";
+        break;
+    case 9:
+        c = "25";
+        break;
+    case 10:
+        c = "27";
+        break;
+    case 11:
+        c = "29";
+        break;
+    case 12:
+        c = "31";
+        break;
+    case 13:
+        c = "17";
+        break;
+    case 14:
+        c = "18";
+        break;
+    case 15:
+        c = "19";
+        break;
+    case 16:
+        c = "20";
+        break;
+    case 17:
+        c = "21";
+        break;
+    case 18:
+        c = "22";
+        break;
+    case 19:
+        c = "23";
+        break;
+    case 20:
+        c = "24";
+        break;
+    case 21:
+        c = "26";
+        break;
+    case 22:
+        c = "28";
+        break;
+    case 23:
+        c = "29";
+    }
+    qDebug() << c;
 }
 
 void MainWindow::set_d()
 {
     int index = ui->comboBox_dif->currentIndex();
     qDebug() << index;
-    switch (index)
-    {
+    switch (index) {
     case 0:
-        d="hard"; break;
+        d = "hard";
+        break;
     case 1:
-        d="medium"; break;
+        d = "medium";
+        break;
     case 2:
-        d="easy"; break;
+        d = "easy";
+        break;
     }
 }
 
@@ -157,7 +159,9 @@ void MainWindow::pushButton_clicked()
     qDebug() << "hello";
     QNetworkAccessManager manager;
     QNetworkRequest request(
-        QUrl(QString("https://opentdb.com/api.php?amount=5&category=%1&difficulty=%2&type=multiple").arg(c).arg(d)));
+        QUrl(QString("https://opentdb.com/api.php?amount=5&category=%1&difficulty=%2&type=multiple")
+                 .arg(c)
+                 .arg(d)));
 
     QNetworkReply *reply = manager.get(request);
 
@@ -213,11 +217,9 @@ void MainWindow::pushButton_clicked()
             qDebug() << "wrong";
         }
     });
-
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
