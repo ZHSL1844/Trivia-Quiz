@@ -14,6 +14,10 @@
 #include <QNetworkRequest>
 #include <QPointer>
 #include <QPushButton>
+#include <QStringList>
+#include <random>
+#include <algorithm>
+#include <QRadioButton>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -63,13 +67,49 @@ MainWindow::MainWindow(QWidget *parent)
                 for (const auto &result : results) {
                     QJsonObject questionObj = result.toObject();
                     QString question = questionObj["question"].toString();
-
-
-
                     category = questionObj["category"].toString();
                     qDebug() << "categoryyyyyyyyyyyyyyy:"<< category;
-
                     ui->textBrowser->setText(question);
+
+                    QJsonArray incorrectAnswers = questionObj["incorrect_answers"].toArray();
+                    QStringList choices;
+                    for (const auto &answer : incorrectAnswers)
+                    {
+                        choices.append(answer.toString());
+                    }
+                    correctAnswer = questionObj["correct_answer"].toString();
+                    choices.append(correctAnswer);
+
+                    //Randomize the order of the list
+                    std::random_device rd;
+                    std::mt19937 generator(rd());
+                    std::shuffle(choices.begin(), choices.end(), generator);
+
+                    ui->label_1->setText(choices[0]);
+                    ui->label_2->setText(choices[1]);
+                    ui->label_3->setText(choices[2]);
+                    ui->label_4->setText(choices[3]);
+                    connect(ui->radioButton, &QRadioButton::clicked, this, [=](){
+                        if (ui->label_1->text() == correctAnswer)
+                            score++;
+                        qDebug() << score;
+                    });
+                    connect(ui->radioButton_2, &QRadioButton::clicked, this, [=](){
+                        if (ui->label_2->text() == correctAnswer)
+                            score++;
+                        qDebug() << score;
+                    });
+                    connect(ui->radioButton_3, &QRadioButton::clicked, this, [=](){
+                        if (ui->label_3->text() == correctAnswer)
+                            score++;
+                        qDebug() << score;
+                    });
+                    connect(ui->radioButton_4, &QRadioButton::clicked, this, [=](){
+                        if (ui->label_4->text() == correctAnswer)
+                            score++;
+                        qDebug() << score;
+                    });
+
                 }
             } else {
                 qDebug() << "Error fetching questions: " << reply->errorString();
