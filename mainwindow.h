@@ -20,6 +20,7 @@ public:
 
 private slots:
     void set_c();
+    void set_d();
 
 private:
     Ui::MainWindow *ui;

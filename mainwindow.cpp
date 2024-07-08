@@ -50,7 +50,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->comboBox_cat->addItem("gadgets");
     ui->comboBox_cat->addItem("carton & animations");
 
+    ui->comboBox_dif->addItem("easy");
+    ui->comboBox_dif->addItem("medium");
+    ui->comboBox_dif->addItem("hard");
+
     QObject::connect(ui->comboBox_cat, SIGNAL(currentIndexChanged(int)), this, SLOT(set_c()));
+
+    QObject::connect(ui->comboBox_dif, SIGNAL(currentIndexChanged(int)), this, SLOT(set_d()));
+
 
     connect(ui->pushButton, &QPushButton::clicked, this, [=]() {
         QNetworkAccessManager *manager = new QNetworkAccessManager(this);
@@ -127,78 +134,93 @@ void MainWindow::set_c()
     qDebug() << index;
     switch (index) {
     case 0:
-        c = "10";
+        c = "9";
         break;
     case 1:
-        c = "32";
+        c = "10";
         break;
     case 2:
-        c = "12";
+        c = "11";
         break;
     case 3:
-        c = "9";
+        c = "12";
         break;
     case 4:
         c = "13";
         break;
     case 5:
-        c = "11";
-        break;
-    case 6:
         c = "14";
         break;
-    case 7:
+    case 6:
         c = "15";
         break;
-    case 8:
+    case 7:
         c = "16";
         break;
-    case 9:
+    case 8:
         c = "25";
         break;
-    case 10:
+    case 9:
         c = "27";
         break;
-    case 11:
+    case 10:
         c = "29";
         break;
-    case 12:
+    case 11:
         c = "31";
         break;
-    case 13:
+    case 12:
         c = "17";
         break;
-    case 14:
+    case 13:
         c = "18";
         break;
-    case 15:
+    case 14:
         c = "19";
         break;
-    case 16:
+    case 15:
         c = "20";
         break;
-    case 17:
+    case 16:
         c = "21";
         break;
-    case 18:
+    case 17:
         c = "22";
         break;
-    case 19:
+    case 18:
         c = "23";
         break;
-    case 20:
+    case 19:
         c = "24";
         break;
-    case 21:
+    case 20:
         c = "26";
         break;
-    case 22:
+    case 21:
         c = "28";
         break;
+    case 22:
+        c = "30";
+        break;
     case 23:
-        c = "29";
+        c = "32";
     }
     qDebug() << c;
+}
+
+void MainWindow::set_d()
+{
+    int index = ui->comboBox_dif->currentIndex();
+    //  qDebug() << index;
+    switch (index)
+    {
+    case 0:
+        d="easy"; break;
+    case 1:
+        d="medium"; break;
+    case 2:
+        d="hard"; break;
+    }
 }
 
 // void MainWindow::trivia()
