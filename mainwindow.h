@@ -21,6 +21,8 @@ public:
 private slots:
     void set_c();
     void set_d();
+    void set();
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -1,23 +1,10 @@
 #include "mainwindow.h"
-#include <QMessageBox>
+#include "oneplayer.h"
 #include "global_variables.h"
 #include "ui_mainwindow.h"
-#include <QRadioButton>
-#include <QPushButton>
+#include "twoplayer.h"
 #include <QComboBox>
-#include <QDebug>
-#include <QJsonArray>
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
-#include <QNetworkRequest>
-#include <QPointer>
 #include <QPushButton>
-#include <QStringList>
-#include <random>
-#include <algorithm>
-#include <QRadioButton>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -54,84 +41,18 @@ MainWindow::MainWindow(QWidget *parent)
     ui->comboBox_dif->addItem("medium");
     ui->comboBox_dif->addItem("hard");
 
+    QObject::connect(ui->comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(set()));
+
     QObject::connect(ui->comboBox_cat, SIGNAL(currentIndexChanged(int)), this, SLOT(set_c()));
 
     QObject::connect(ui->comboBox_dif, SIGNAL(currentIndexChanged(int)), this, SLOT(set_d()));
-
-
-    connect(ui->pushButton, &QPushButton::clicked, this, [=]() {
-        QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-        QNetworkRequest request(QUrl(QString("https://opentdb.com/api.php?amount=5&category=%1&difficulty=%2&type=multiple").arg(c).arg(d)));
-        QNetworkReply *reply = manager->get(request);
-
-        connect(reply, &QNetworkReply::finished, this, [=]() {
-            if (reply->error() == QNetworkReply::NoError) {
-                QByteArray data = reply->readAll();
-                QJsonDocument doc = QJsonDocument::fromJson(data);
-                QJsonObject obj = doc.object();
-                QJsonArray results = obj["results"].toArray();
-                int i = 1;
-                for (const auto &result : results) {
-                    QJsonObject questionObj = result.toObject();
-                    QString question = questionObj["question"].toString();
-                    category = questionObj["category"].toString();
-                    qDebug() << "categoryyyyyyyyyyyyyyy:"<< category;
-                    ui->textBrowser->setText(question);
-
-                    QJsonArray incorrectAnswers = questionObj["incorrect_answers"].toArray();
-                    QStringList choices;
-                    for (const auto &answer : incorrectAnswers)
-                    {
-                        choices.append(answer.toString());
-                    }
-                    correctAnswer = questionObj["correct_answer"].toString();
-                    choices.append(correctAnswer);
-
-                    //Randomize the order of the list
-                    std::random_device rd;
-                    std::mt19937 generator(rd());
-                    std::shuffle(choices.begin(), choices.end(), generator);
-
-                    ui->label_1->setText(choices[0]);
-                    ui->label_2->setText(choices[1]);
-                    ui->label_3->setText(choices[2]);
-                    ui->label_4->setText(choices[3]);
-                    connect(ui->radioButton, &QRadioButton::clicked, this, [=](){
-                        if (ui->label_1->text() == correctAnswer)
-                            score++;
-                        qDebug() << score;
-                    });
-                    connect(ui->radioButton_2, &QRadioButton::clicked, this, [=](){
-                        if (ui->label_2->text() == correctAnswer)
-                            score++;
-                        qDebug() << score;
-                    });
-                    connect(ui->radioButton_3, &QRadioButton::clicked, this, [=](){
-                        if (ui->label_3->text() == correctAnswer)
-                            score++;
-                        qDebug() << score;
-                    });
-                    connect(ui->radioButton_4, &QRadioButton::clicked, this, [=](){
-                        if (ui->label_4->text() == correctAnswer)
-                            score++;
-                        qDebug() << score;
-                    });
-
-                }
-            } else {
-                qDebug() << "Error fetching questions: " << reply->errorString();
-            }
-
-            reply->deleteLater();
-        });
-    });
-
 }
 
 void MainWindow::set_c()
 {
+    if (mode == 1)
+    {
     int index = ui->comboBox_cat->currentIndex();
-    qDebug() << index;
     switch (index) {
     case 0:
         c = "9";
@@ -205,89 +126,49 @@ void MainWindow::set_c()
     case 23:
         c = "32";
     }
-    qDebug() << c;
+    }
 }
 
 void MainWindow::set_d()
 {
     int index = ui->comboBox_dif->currentIndex();
-    //  qDebug() << index;
-    switch (index)
-    {
+    switch (index) {
     case 0:
-        d="easy"; break;
+        d = "easy";
+        break;
     case 1:
-        d="medium"; break;
+        d = "medium";
+        break;
     case 2:
-        d="hard"; break;
+        d = "hard";
+        break;
     }
 }
-
-// void MainWindow::trivia()
-// {
-//     qDebug() << "hello";
-//     QNetworkAccessManager manager;
-//     QNetworkRequest request(
-//         QUrl(QString("https://opentdb.com/api.php?amount=5&category=%1&difficulty=%2&type=multiple").arg(c).arg(d)));
-
-//     QNetworkReply *reply = manager.get(request);
-
-//     QPointer<QNetworkReply> replyPtr(reply);
-//     if (replyPtr)
-//         qDebug() << "yes";
-
-//        QObject::connect(reply, &QNetworkReply::finished, [replyPtr]() {
-//     if (replyPtr) {
-//         qDebug() << "bye";
-//         if (replyPtr->error() == QNetworkReply::NoError) {
-//         QByteArray data = replyPtr->readAll();
-//         QJsonDocument doc = QJsonDocument::fromJson(data);
-//         QJsonObject jsonObj = doc.object();
-//         QJsonArray results = jsonObj["results"].toArray();
-
-//         int i = 1;
-//         for (const auto &result : results) {
-//             QJsonObject questionObj = result.toObject();
-//             // QString question = questionObj["question"].toString();
-
-//             QJsonArray incorrectAnswers = questionObj["incorrect_answers"].toArray();
-//             QStringList choices;
-//             for (const auto &answer : incorrectAnswers) {
-//                 choices.append(answer.toString());
-//             }
-//             choices.append(questionObj["correct_answer"].toString());
-
-//             if (i == 1) {
-//                 category = questionObj["category"].toString();
-//                 qDebug() << category;
-//                 difficulty = questionObj["difficulty"].toString();
-//                 //    question1 = question;
-//                 //   choices1 = choices.join(", ");
-//             }
-
-//             else if (i == 2) {
-//                 //     question2 = question;
-//                 //     choices2 = choices.join(", ");
-//             }
-
-//             else {
-//                 //  question3 = question;
-//                 //    choices3 = choices.join(", ");
-//             }
-
-//             i++;
-//         }
-//         } else {
-//         qDebug() << "Error: " << replyPtr->errorString();
-//          }
-//     } else {
-//         qDebug() << "wrong";
-//     }
-//         });
-// }
-
+void MainWindow::set()
+{
+    mode = ui->comboBox->currentIndex();
+    if(mode == 0)
+    {
+    ui->comboBox_cat->hide();
+    }
+}
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    if (mode == 0)
+    {
+    OnePlayer *p = new OnePlayer();
+    p->show();
+    }
+    else
+    {
+        TwoPlayer *t = new TwoPlayer();
+        t->show();
+    }
+}
+

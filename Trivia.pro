@@ -10,16 +10,25 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    gameover.cpp \
     global_variables.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    oneplayer.cpp \
+    twoplayer.cpp
 
 HEADERS += \
+    gameover.h \
     global_variables.h \
-    mainwindow.h
+    mainwindow.h \
+    oneplayer.h \
+    twoplayer.h
 
 FORMS += \
-    mainwindow.ui
+    gameover.ui \
+    mainwindow.ui \
+    oneplayer.ui \
+    twoplayer.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
